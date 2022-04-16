@@ -1,0 +1,54 @@
+-- Example made by twink marie
+local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
+
+local X = Material.Load({
+    Title = "ActiveFitnessaW SkravL NazL",
+    Style = 3,
+    SizeX = 500,
+    SizeY = 350,
+    Theme = "Dark",
+    ColorOverrides = {
+        MainFrame = Color3.fromRGB(10, 10, 10)
+    }
+})
+
+local Y = X.New({
+    Title = "FE"
+})
+
+local Z = X.New({
+    Title = "2"
+})
+
+local A = Y.Button({
+    Text = "Ctrl + Click Delete",
+    Callback = function()
+        local Plr = game:GetService("Players").LocalPlayer
+local Mouse = Plr:GetMouse()
+
+Mouse.Button1Down:connect(function()
+if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then return end
+if not Mouse.Target then return end
+
+local args = {
+    [1] = {
+        [1] = "Break",
+        [2] = Mouse.Target
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.BuildBreak:FireServer(unpack(args))
+
+
+end)
+    end,
+    Menu = {
+        Information = function(self)
+            X.Banner({
+                Text = "ctrl + click delete"
+            })
+        end
+    }
+})
+
+
