@@ -79,9 +79,7 @@ end
 local H = Y.TextField({
     Text = "Kill Player",
     Callback = function(Value)
-        
-
-local args = {
+        local args = {
     [1] = {
         [1] = "Break",
         [2] = game:GetService("Workspace")[Value].Head,
@@ -89,5 +87,17 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Events.BuildBreak:FireServer(unpack(args))
+    end,
+    Menu = {
+        GB = function(self)
+            self.SetText("1")
+        end,
+        JP = function(self)
+            self.SetText("2")
+        end,
+        KO = function(self)
+            self.SetText("3")
+        end
+    }
+})
 
-    end
