@@ -75,3 +75,19 @@ end
         end
     }
 })
+
+local H = Y.TextField({
+    Text = "Kill Player",
+    Callback = function(Value)
+        
+
+local args = {
+    [1] = {
+        [1] = "Break",
+        [2] = game:GetService("Workspace")[Value].Head,
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.BuildBreak:FireServer(unpack(args))
+
+    end
